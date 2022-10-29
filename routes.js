@@ -27,13 +27,22 @@ const routes = [
             return 'Halaman tidak dapat diakses dengan method';
         },
     },
+    
     //Path Parameter
     {
         method: 'GET',
         path: '/hello/{name?}',
         handler: (request, h) => {
             const { name = "stranger" } = request.params;
+            //add query param
+            const { lang } = request.query;
+            if(lang === 'id') {
+                return `Hai, ${name}!`;
+            }
             return `Hello, ${name}!`;
+            
+            //write this if you want try query param
+            //curl -X GET http://localhost:5000/hello/abilio?lang=id
         },
     },
 
