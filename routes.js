@@ -40,10 +40,19 @@ const routes = [
                 return `Hai, ${name}!`;
             }
             return `Hello, ${name}!`;
-            
+
             //write this if you want try query param
             //curl -X GET http://localhost:5000/hello/abilio?lang=id
         },
+    },
+    
+    {
+        method: 'POST',
+        path: '/login',
+        handler: (request, h) => {
+            const { username, password} = request.payload;
+            return `welcome ${username}!`;
+        }
     },
 
     {
